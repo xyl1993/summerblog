@@ -1,2 +1,2 @@
-http://summerlog.net/2017/05/19/page欢迎使用-Cmd-Markdown-编辑阅读器/
-http://summerlog.net/2017/05/18/GitPage部署Hexo-NexT主题的CSS-JS错误/
+http://summerlog.net/page欢迎使用-Cmd-Markdown-编辑阅读器.html
+http://summerlog.net/GitPage部署Hexo-NexT主题的CSS-JS错误.html
