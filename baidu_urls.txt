@@ -1,4 +1,4 @@
-http://summerlog.net/angularjs上传文件.html
+http://summerlog.net/angularjs使用formData上传文件.html
 http://summerlog.net/javascript-xhr上传文件.html
 http://summerlog.net/欢迎使用-Cmd-Markdown-编辑阅读器.html
 http://summerlog.net/GitPage部署Hexo-NexT主题的CSS-JS错误.html

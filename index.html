@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://summerlog.net/angularjs上传文件.html">
+    <link itemprop="mainEntityOfPage" href="http://summerlog.net/angularjs使用formData上传文件.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="summer">
@@ -300,7 +300,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angularjs上传文件.html" itemprop="url">angularjs上传文件</a></h1>
+                <a class="post-title-link" href="/angularjs使用formData上传文件.html" itemprop="url">angularjs使用formData上传文件</a></h1>
         
 
         <div class="post-meta">
@@ -352,7 +352,7 @@
 
           
           
-             <span id="/angularjs上传文件.html" class="leancloud_visitors" data-flag-title="angularjs上传文件">
+             <span id="/angularjs使用formData上传文件.html" class="leancloud_visitors" data-flag-title="angularjs使用formData上传文件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,7 +382,7 @@
       
         
           
-            <h1 id="angularjs上传文件"><a href="#angularjs上传文件" class="headerlink" title="angularjs上传文件"></a>angularjs上传文件</h1><hr>
+            <h1 id="angularjs使用formData上传文件"><a href="#angularjs使用formData上传文件" class="headerlink" title="angularjs使用formData上传文件"></a>angularjs使用formData上传文件</h1><hr>
 <h3 id="html代码-code"><a href="#html代码-code" class="headerlink" title="html代码[^code]"></a>html代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"file"</span> id=<span class="string">"uploadFileInput"</span> custom-on-change=<span class="string">"uploadFile"</span> name=<span class="string">"file"</span>/&gt;</div></pre></td></tr></table></figure>
 <h3 id="js代码-code"><a href="#js代码-code" class="headerlink" title="js代码[^code]"></a>js代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">   $scope.uploadFile = function(event)&#123;</div><div class="line">   	file = event.target.files;</div><div class="line">   	<span class="keyword">if</span>(!file) <span class="keyword">return</span>;</div><div class="line">	$scope.fileName = file[<span class="number">0</span>].name;</div><div class="line">	<span class="keyword">if</span>($scope.uploadObj.date)&#123;</div><div class="line">   		$(<span class="string">'#saveUp'</span>).removeAttr(<span class="string">"disabled"</span>);</div><div class="line">   	&#125;</div><div class="line">	$scope.$apply();</div><div class="line">   &#125;;</div><div class="line"></div><div class="line">var formData = new FormData();</div><div class="line">formData.append(<span class="string">"file"</span>, file[<span class="number">0</span>]);</div><div class="line">formData.append(<span class="string">"chooseDate"</span>,$scope.uploadObj.date);</div><div class="line">//关闭弹窗</div><div class="line">$scope.maskFlag = true;  //是否显示遮罩层</div><div class="line">$http.post(<span class="string">'shiftsWork/uploadFile'</span>, formData, &#123;</div><div class="line">       transformRequest: angular.identity,</div><div class="line">       headers: &#123;<span class="string">'Content-Type'</span>: undefined,<span class="string">'token'</span>: token&#125;</div><div class="line">   &#125;)</div><div class="line">   .success(function (res) &#123;</div><div class="line">   	</div><div class="line">   &#125;)</div><div class="line">   .error(function (res, status) &#123;</div><div class="line">   	</div><div class="line">   &#125;);</div><div class="line">   </div><div class="line">   ------</div><div class="line">   </div><div class="line">   <span class="comment"># 指令,监听文件变化</span></div><div class="line"></div><div class="line">   .directive(<span class="string">'customOnChange'</span>, function() &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">	    restrict: <span class="string">'A'</span>,</div><div class="line">	    link: function (scope, element, attrs) &#123;</div><div class="line">	      var onChangeHandler = scope.$eval(attrs.customOnChange);</div><div class="line">	      element.bind(<span class="string">'change'</span>, onChangeHandler);</div><div class="line">	    &#125;</div><div class="line">	  &#125;;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
 
