@@ -281,6 +281,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://summerlog.net/angularjs上传文件.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="summer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oq4pg1mfz.bkt.clouddn.com/429a607d-727b-455e-9be7-f306b132a2d1217.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="summerblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/angularjs上传文件.html" itemprop="url">angularjs上传文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T09:23:21+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angularjs/" itemprop="url" rel="index">
+                    <span itemprop="name">angularjs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/angularjs上传文件.html" class="leancloud_visitors" data-flag-title="angularjs上传文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="angularjs上传文件"><a href="#angularjs上传文件" class="headerlink" title="angularjs上传文件"></a>angularjs上传文件</h1><hr>
+<h3 id="html代码-code"><a href="#html代码-code" class="headerlink" title="html代码[^code]"></a>html代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"file"</span> id=<span class="string">"uploadFileInput"</span> custom-on-change=<span class="string">"uploadFile"</span> name=<span class="string">"file"</span>/&gt;</div></pre></td></tr></table></figure>
+<h3 id="js代码-code"><a href="#js代码-code" class="headerlink" title="js代码[^code]"></a>js代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">   $scope.uploadFile = function(event)&#123;</div><div class="line">   	file = event.target.files;</div><div class="line">   	<span class="keyword">if</span>(!file) <span class="keyword">return</span>;</div><div class="line">	$scope.fileName = file[<span class="number">0</span>].name;</div><div class="line">	<span class="keyword">if</span>($scope.uploadObj.date)&#123;</div><div class="line">   		$(<span class="string">'#saveUp'</span>).removeAttr(<span class="string">"disabled"</span>);</div><div class="line">   	&#125;</div><div class="line">	$scope.$apply();</div><div class="line">   &#125;;</div><div class="line"></div><div class="line">var formData = new FormData();</div><div class="line">formData.append(<span class="string">"file"</span>, file[<span class="number">0</span>]);</div><div class="line">formData.append(<span class="string">"chooseDate"</span>,$scope.uploadObj.date);</div><div class="line">//关闭弹窗</div><div class="line">$scope.maskFlag = true;  //是否显示遮罩层</div><div class="line">$http.post(<span class="string">'shiftsWork/uploadFile'</span>, formData, &#123;</div><div class="line">       transformRequest: angular.identity,</div><div class="line">       headers: &#123;<span class="string">'Content-Type'</span>: undefined,<span class="string">'token'</span>: token&#125;</div><div class="line">   &#125;)</div><div class="line">   .success(function (res) &#123;</div><div class="line">   	</div><div class="line">   &#125;)</div><div class="line">   .error(function (res, status) &#123;</div><div class="line">   	</div><div class="line">   &#125;);</div><div class="line">   </div><div class="line">   ------</div><div class="line">   </div><div class="line">   <span class="comment"># 指令,监听文件变化</span></div><div class="line"></div><div class="line">   .directive(<span class="string">'customOnChange'</span>, function() &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">	    restrict: <span class="string">'A'</span>,</div><div class="line">	    link: function (scope, element, attrs) &#123;</div><div class="line">	      var onChangeHandler = scope.$eval(attrs.customOnChange);</div><div class="line">	      element.bind(<span class="string">'change'</span>, onChangeHandler);</div><div class="line">	    &#125;</div><div class="line">	  &#125;;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://summerlog.net/javascript-xhr上传文件.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -761,7 +908,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -772,7 +919,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -783,7 +930,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
