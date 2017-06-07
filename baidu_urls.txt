@@ -1,3 +1,4 @@
+http://summerlog.net/16种方法实现水平居中垂直居中.html
 http://summerlog.net/angularjs使用formData上传文件.html
 http://summerlog.net/javascript-xhr上传文件.html
 http://summerlog.net/欢迎使用-Cmd-Markdown-编辑阅读器.html
